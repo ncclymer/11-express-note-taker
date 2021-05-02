@@ -17,8 +17,22 @@ app.get("/api/notes", function(req, res) {
     res.sendFile(path.join(__dirname, "/db/db.json"));
 });
 
+// writes user entries to db.json
+
+app.post("/api/notes", function(req, res) {
+    let saveData = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    let newData = req.body;
+    let uniqueID = (saveData.length).toString();
+    newData.id = uniqueID;
+    saveData.push(newData);
+
+    fs.writeFileSync("./db/db.json", JSON.stringify(saveData));
+    console.log("Note saved to db.json. Content: ", newData);
+    res.json(saveData);
+})
+
 
 // server init //
 app.listen(PORT, function() {
-    console.log(`Now listening to port ${PORT}. Now listening on port 8080`);
+    console.log(`Now listening on port ${PORT}.`);
 })
