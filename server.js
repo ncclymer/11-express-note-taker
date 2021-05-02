@@ -10,6 +10,10 @@ app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 
 // paths //
+app.get("*", function(req, res) {
+    res.sendFile(path.join(primeData, "index.html"));
+});
+
 app.get("/notes", function(req, res) {
     res.sendFile(path.join(primeData, "notes.html"));
 });
@@ -32,8 +36,7 @@ app.post("/api/notes", function(req, res) {
     res.json(saveData);
 })
 
-
 // server init //
 app.listen(PORT, function() {
-    console.log(`Now listening on port ${PORT}.`);
+    console.log(`The server has started and is now listening on port ${PORT}. Enter localhost:8080 into your URL bar to use the application.`);
 })
