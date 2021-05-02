@@ -3,8 +3,9 @@ const express = require("express");
 const fs = require("fs");
 const app = express();
 const PORT = 8080;
-const primeData = path.join(__dirname, "/public")
+const primeData = path.join(__dirname, "/public");
 
+app.use(express.json());
 app.use(express.static('public'));
 app.use(express.urlencoded({extended: true}));
 
