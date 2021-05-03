@@ -10,6 +10,10 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 // paths //
+app.get("/", function (req, res) {
+    res.sendFile(path.join(primeData, "index.html"));
+});
+
 app.get("/notes", function (req, res) {
     res.sendFile(path.join(primeData, "notes.html"));
 });
