@@ -2,7 +2,7 @@ const path = require("path");
 const express = require("express");
 const fs = require("fs");
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const primeData = path.join(__dirname, "/public");
 
 app.use(express.json());
