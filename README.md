@@ -20,7 +20,7 @@
     The code for this project can be found at the repository below. You will need to install the path, express, and fs npms.
 
   ## Usage:
-    This project can be used locally or remotely through: nickc-note-taker.herokuapp.com
+    This project can be used locally or remotely through: https://intense-plains-16472.herokuapp.com/ You can run this app locally by running "node server.js".
 
   ## Licence:
   NOTICE! - This application has the following licence type: ![licence](https://img.shields.io/badge/License-MIT-blue.svg "Licence Badge")
@@ -41,6 +41,6 @@
   ## Demo video and repository URL:
   Git repository: https://github.com/ncclymer/11-express-note-taker
 
-  Heroku URL: https://nickc-note-taker.herokuapp.com/
+  Heroku URL: https://intense-plains-16472.herokuapp.com/
 
-  Demo Video: 
+  Demo Video: https://drive.google.com/file/d/1xt1kez-dSJlkSem9XS79ekkDf51NXOC4/view
