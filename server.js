@@ -26,7 +26,7 @@ app.get("*", function (req, res) {
     res.sendFile(path.join(primeData, "index.html"));
 });
 
-// writes user entries to db.json
+// writes user entries to db.json //
 app.post("/api/notes", function (req, res) {
     let saveData = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     let newData = req.body;
@@ -38,6 +38,26 @@ app.post("/api/notes", function (req, res) {
     console.log("Note saved to db.json. Content: ", newData);
     res.json(saveData);
 });
+
+// deletes user entries from db.json //
+app.delete("/api/notes/:id", function(req, res) {
+    let saveData = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+    let newData = req.params.id;
+    let newID = 0;
+    console.log(`Deleting note with ID ${newData}`);
+    saveData = saveData.filter(currNote => {
+        return currNote.id != newData;
+    })
+    
+    for (currNote of saveData) {
+        currNote.id = newID.toString();
+        newID++;
+    }
+
+    fs.writeFileSync("./db/db.json", JSON.stringify(saveData));
+    res.json(saveData);
+});
+
 
 // server init //
 app.listen(PORT, function () {
